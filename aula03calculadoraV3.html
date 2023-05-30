@@ -9,66 +9,9 @@ renderizada-->
     <meta name="description" content="lista de documentos">
     <meta name="keywords" content="html5, tecnologia">
 
-    <style>
-        
-        .calculadora{
-            border: 3px solid black;
-            border-radius: 10px;
-            margin: auto;
-            padding: 0;
-            width: 50%;
-            height: 30em;
-            background-color: #ccc;
-            display: flex;
-            flex-wrap: wrap;
-        }
+    <link rel="stylesheet" href="./styles.css">
 
-        .tela{
-            border: 4px solid black;
-            border-radius: 5px;
-            padding: 0;
-            width: 100%;
-            height: 150px;
-            margin: 10px 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 40px;
-            font-weight: 900;
-        }
-
-        .buttonsBox{
-            padding: 0;
-            width: 100%;
-            height: 100px;
-            margin: 0 10px;
-            display: flex;
-        }
-        button{
-            background-color: darkgray;
-            border: 2px solid black;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin: 5px;
-            font-size: 25px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .limpar{
-            border: 2px solid black;
-            border-radius: 5px;
-            width: 50%;
-            margin: 10px auto;
-            display: flex;
-        }
-
-
-
-    </style>
+    <script src="./main.js"></script>
     
 </head>
 
@@ -90,80 +33,6 @@ renderizada-->
         <button onclick="limpar()">limpar</button>
 
     </div>
-
-    <script>
-        
-        var num = parseFloat(prompt("Digite um número: "));
-
-        try{
-            print(num);
-        }
-        catch(e){
-            alert(e);
-            print(0);
-        }
-        function iniciarCalculo(x){
-            var n1 = parseFloat(document.querySelector(".tela").textContent);
-
-            var n2 = parseFloat(prompt("Digite outro número: "));
-
-            try{
-                var res = calcular(x, n1, n2);
-            }
-            catch(e){
-                alert(e)
-                print(0);
-            }
-
-            var res = calcular(x, n1, n2);
-
-            print(res);
-        }
-
-        function print(num){
-
-            if(isNaN(num)){
-            throw new Error("Somente números.");
-            }
-
-            var tela = document.querySelector(".tela").innerHTML = num;
-        }
-
-        function calcular(x, n1, n2){
-
-            if(x !== "soma" && x !== "sub" && x !== "mult" && x !== "divi"){
-                throw new Error("Função inválida.");
-            }
-
-            if( isNaN(n1) || isNaN(n2) ){
-                throw new Error("Somente números.");
-            }
-
-            var numCalculado = null;
-
-            switch(x){
-                case 'soma':
-                    numCalculado = n1 + n2;
-                    break;
-                case 'sub':
-                    numCalculado = n1 - n2;
-                    break;
-                case 'mult':
-                    numCalculado = n1 * n2;
-                    break;
-                case 'divi':
-                    numCalculado = n1 / n2;
-            }   
-            
-            return numCalculado;    
-        }
-
-        function limpar(){
-            num = 0;
-            print(num);
-        }
-
-    </script>
 
 </body>
 
